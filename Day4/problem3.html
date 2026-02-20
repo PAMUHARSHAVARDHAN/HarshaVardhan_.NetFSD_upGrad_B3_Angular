@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Discount Calculator</h1>
+  
+    <Script>
+        let amount = Number(prompt("enter the Amount"));
+        if (amount >=5000){
+            document.write("you will get 20% discount<br>")
+            document.write("your final amount is "+(amount-(amount*0.2)))
+
+        }
+        else if (amount >=3000 && amount <5000){
+            document.write("you will get 10% discount<br>")
+            document.write("your final amount is "+(amount-(amount*0.1)))
+        }
+        else{
+            document.write("No discount applicable")
+        }
+    </Script>
+</body>
+</html>
