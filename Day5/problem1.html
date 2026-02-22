@@ -1,0 +1,166 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting genrator
+
+    </title>
+</head>
+<body>
+    <header><h1>Greeting Generator</h1></header>
+    
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit" onclick="generateGreeting()">Generate Greeting</button>
+        <p id="greeting"></p>
+
+    <script>
+        function generateGreeting() {
+            var name  = document.getElementById("name").value;
+            var message = 'Hello ' + name + ', welcome to our website!';
+            document.getElementById("greeting").innerText= message; 
+        }
+    </script>
+    
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object based user info display</title>
+</head>
+<body>
+    <h1>User Information Display</h1>
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name=" Name" required>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    <br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+    <br>
+    <button onclick=" displayUserInfo()">Display User Info</button>
+    <p id="Pname"> </p>
+    <P id="page"></P>
+    <p id ='pcity'></p>
+    <script>
+        function displayUserInfo() {
+            let user = {
+                name: document.getElementById('Name').value,
+                age: document.getElementById('age').value,
+                city:document.getElementById('city').value
+            };
+            displayUserinfo(user);
+
+            }
+            function displayUserinfo(userObj){
+                document.getElementById('Pname').innerText = 'Name: ' + userObj.name;
+                document.getElementById('page').innerText = 'Age: ' + userObj.age;
+                document.getElementById('pcity').innerText = 'City: ' + userObj.city;
+            }
+                   
+    </script>
+
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter increment</title>
+</head>
+<body>
+    <h1>Counter Increment</h1>
+<p id =counter>0</p>
+<button id ="incrementbtn"> Increment</button>
+<button id="resetbtn">Reset</button>
+<script>
+    let count =0;
+    function incrementCounter(step) {
+        count+= step;
+        document.getElementById('counter').innerText = count;
+
+
+    }
+    function resetCounter(){
+        count =0;
+        document.getElementById('counter').innerText=count;
+    }
+    document.getElementById('incrementbtn').addEventListener('click', function() {
+        incrementCounter(1);
+    });
+    document.getElementById('resetbtn').addEventListener('click', resetCounter);
+    
+
+</script>
+
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Student Profile Manager</title>
+    <style>
+        #profileBox {
+            border: 2px solid #333;
+            padding: 15px;
+            width: 250px;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Profile Manager</h2>
+
+    <button id="showBtn">Show Profile</button>
+    <button id="updateBtn">Update Marks (+10)</button>
+
+    <div id="profileBox"></div>
+
+    <script>
+
+        // Global student object (Required)
+        let student = {
+            name: "Rahul",
+            rollNo: 101,
+            marks: 75
+        };
+
+        // Function to display student details
+        function updateStudentProfile(studentObj) {
+
+            let content =
+                "<h3>Student Details</h3>" +
+                "<p><strong>Name:</strong> " + studentObj.name + "</p>" +
+                "<p><strong>Roll No:</strong> " + studentObj.rollNo + "</p>" +
+                "<p><strong>Marks:</strong> " + studentObj.marks + "</p>";
+
+            document.getElementById("profileBox").innerHTML = content;
+        }
+
+        // Function to update marks and refresh UI
+        function updateMarks(newMarks) {
+            student.marks = newMarks;   // Updating global object
+            updateStudentProfile(student); // Refresh display
+        }
+
+        // Event Listeners (No inline JS)
+        document.getElementById("showBtn").addEventListener("click", function () {
+            updateStudentProfile(student);
+        });
+
+        document.getElementById("updateBtn").addEventListener("click", function () {
+            updateMarks(student.marks + 10);
+        });
+
+    </script>
+
+</body>
+</html>
