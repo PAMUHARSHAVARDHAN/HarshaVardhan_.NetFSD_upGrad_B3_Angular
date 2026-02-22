@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Student Profile Manager</title>
+    <style>
+        #profileBox {
+            border: 2px solid #333;
+            padding: 15px;
+            width: 250px;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Profile Manager</h2>
+
+    <button id="showBtn">Show Profile</button>
+    <button id="updateBtn">Update Marks (+10)</button>
+
+    <div id="profileBox"></div>
+
+    <script>
+
+        // Global student object (Required)
+        let student = {
+            name: "Rahul",
+            rollNo: 101,
+            marks: 75
+        };
+
+        // Function to display student details
+        function updateStudentProfile(studentObj) {
+
+            let content =
+                "<h3>Student Details</h3>" +
+                "<p><strong>Name:</strong> " + studentObj.name + "</p>" +
+                "<p><strong>Roll No:</strong> " + studentObj.rollNo + "</p>" +
+                "<p><strong>Marks:</strong> " + studentObj.marks + "</p>";
+
+            document.getElementById("profileBox").innerHTML = content;
+        }
+
+        // Function to update marks and refresh UI
+        function updateMarks(newMarks) {
+            student.marks = newMarks;   // Updating global object
+            updateStudentProfile(student); // Refresh display
+        }
+
+        // Event Listeners (No inline JS)
+        document.getElementById("showBtn").addEventListener("click", function () {
+            updateStudentProfile(student);
+        });
+
+        document.getElementById("updateBtn").addEventListener("click", function () {
+            updateMarks(student.marks + 10);
+        });
+
+    </script>
+
+</body>
+</html>
