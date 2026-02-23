@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live form validation</title>
+</head>
+<body>
+    <h1>live form validation</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" onchange="validateName()" >
+    <p id="name1"></p>
+    <label for="email">Email:</label>
+    <input type="email" id="email" onchange=" validateEmail()">
+    <p id="email1"></p>
+    <label for="age">Age:</label>
+    <input type="number" id="age" onchange="validateAge()">
+    <p id="age1"></p>
+    <button onclick="submitform()">Submit</button>
+    <p id ='submitmsg'></p>
+    <Script>
+        function validateName(){
+            let nameinput = document.getElementById('name').value;
+            if (nameinput ===""){
+                document.getElementById('name1').innerHTML = "name Cannot be empty";
+            }
+            else{
+                document.getElementById('name1').innerHTML = "";
+            }
+
+
+            }
+
+        function validateEmail(){
+            let email2 =document.getElementById('email').value;
+            if(!email2.includes("@")){
+                document.getElementById('email1').innerHTML ="Email must contain @";
+            }
+            else{
+                document.getElementById('email1').innerHTML ="";
+            }
+        }
+        function validateAge(){
+            let age2 =document.getElementById('age').value;
+            if (age2 ===""|| age2 <18){
+                document.getElementById('age1').innerHTML="Age must be greater than 18";
+            }
+            else{
+                document.getElementById('age1').innerHTML="";
+            }
+        }
+        function submitform(){
+            let nameinput = document.getElementById('name').value;
+            let email2 =document.getElementById('email').value;
+            let age2 =document.getElementById('age').value;
+            if (nameinput !== "" && email2.includes('@') && age2 >=18){
+            sessionStorage.setItem("name",nameinput)
+            sessionStorage.setItem("email",email2)
+            sessionStorage.setItem("age",age2)
+            
+                document.getElementById('submitmsg').innerHTML = "Form submitted successfully!";
+            }
+            else{
+                document.getElementById('submitmsg').innerHTML = "error"; 
+               }
+        }
+        
+    </Script>
+
+</body>
+</html>
