@@ -62,13 +62,13 @@ function showError(error) {
 
   switch(error.code) {
     case error.PERMISSION_DENIED:
-      message = "❌ Permission denied by user.";
+      message = "Permission denied by user.";
       break;
     case error.POSITION_UNAVAILABLE:
-      message = "⚠ Location unavailable.";
+      message = "Location unavailable.";
       break;
     case error.TIMEOUT:
-      message = "⏳ Request timed out.";
+      message = "Request timed out.";
       break;
     default:
       message = "Unknown error occurred.";
@@ -127,4 +127,5 @@ function loadHistory() {
 </script>
 
 </body>
+
 </html>
