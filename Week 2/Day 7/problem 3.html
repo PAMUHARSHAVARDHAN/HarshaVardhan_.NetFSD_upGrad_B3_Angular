@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>employess</title>
+</head>
+<body>
+    <h1>Employee Details</h1>
+    <label > select job</label>
+    <select name="job" id="jobSelect">
+        <option value="all">All Employees</option>
+        <option value="manager">Manager</option>
+        <option value="developer">Developer</option>
+        <option value="designer">Designer</option>
+    </select>
+    <button onclick="filterEmployees()">Filter Employees</button>
+    <div id="employeeList"></div>
+    <script>
+        const employees = [{
+            id:1 , name:"Alice", job:"manager"
+
+        }
+        ,{
+            id:2 , name:"Bob", job:"developer"
+
+        }
+        ,{
+            id:3 , name:"Charlie", job:"designer"
+
+        }]
+        function filterEmployees(){
+            const jobselect = document.getElementById("jobSelect").value;
+            const  filteredEmployees = jobselect === "all" ? employees : employees.filter(emp => emp.job === jobselect);
+            // if (filteredEmployees.length === 0 ){
+            //     document.getElementById("employeeList").innerHTML = "<p>No employees found for the selected job.</p>";
+            // }
+            let table =
+             "<table border='1' cellpadding='5'><tr><th>ID</th><th>Name</th><th>Job</th></tr>";
+               filteredEmployees.forEach(function(emp) {
+             table += "<tr>" +
+             "<td>" + emp.id + "</td>" +
+             "<td>" + emp.name + "</td>" +
+             "<td>" + emp.job + "</td>" +
+             "</tr>";
+
+            });
+            table += "</table>";
+            document.getElementById("employeeList").innerHTML = table;
+        }
+
+        
+      
+    </script>
+</body>
+</html>
