@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student MArks Anlyzer</title>
+    </title>
+</head>
+<body>
+    <h1>Student Marks Analyzer</h1>
+    <hr>
+    <button onclick="btn1()">Button-1</button>
+    <hr>
+    <div id="output"></div>
+    <script>
+        function btn1(){
+            let studentmarksarr =[50,60,70,80,90];
+            let totalmarks = studentmarksarr.reduce((total ,mark) => total +mark,0);
+            let avgmarks= totalmarks/studentmarksarr.length;
+            let result = avgmarks >= 60 ? "Pass" : "Fail";
+
+            let grade;
+            if (avgmarks >=90){
+                grade ="A";
+
+            }
+            else if(avgmarks >=80){
+                grade = "B";
+            }
+            else if(avgmarks >=70){
+                grade = "C";
+            }
+            else if(avgmarks >=60){
+                grade = "D";
+            }
+            else{
+                grade = "F";
+            }
+            console.log(grade);
+            let markslist = studentmarksarr.map((mark,index) => {
+                return "student" + (index + 1) + " : " + mark;
+            }).join(", ");
+            document.getElementById("output").innerHTML =
+    "<p><strong>Marks:</strong> " + markslist + "</p>" +
+    "<p><strong>Total:</strong> " + totalmarks + "</p>" +
+    "<p><strong>Average:</strong> " + avgmarks.toFixed(2) + "</p>" +
+    "<p><strong>Grade:</strong> " + grade + "</p>" +
+    "<p><strong>Status:</strong> " + result + "</p>";
+        }
+
+
+    </script>
+
+    
+</body>
+</html>
