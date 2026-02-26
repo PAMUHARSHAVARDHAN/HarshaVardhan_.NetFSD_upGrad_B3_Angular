@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager - Async Evolution</title>
+</head>
+<body>
+
+<h2>Task Manager with Async Storage (Level-2)</h2>
+
+<input type="text" id="taskInput" placeholder="Enter Task">
+<br><br>
+
+<button onclick="addTaskCallbackVersion()">Add (Callback)</button>
+<button onclick="addTaskPromiseVersion()">Add (Promise)</button>
+<button onclick="addTaskAsyncVersion()">Add (Async/Await)</button>
+
+<button onclick="listTasks()">List Tasks</button>
+<button onclick="deleteLastTask()">Delete Last Task</button>
+
+<hr>
+
+<div id="output"></div>
+
+<script>
+// STORAGE (Simulated Async Storage)
+
+let tasks = [];
+
+const output = document.getElementById("output");
+
+
+
+// CALLBACK VERSION
+
+
+const addTaskCallback = (task, callback) => {
+    setTimeout(() => {
+        tasks.push(task);
+        callback("Task added using Callback");
+    }, 1000);
+};
+
+const addTaskCallbackVersion = () => {
+    const task = document.getElementById("taskInput").value;
+
+    addTaskCallback(task, (message) => {
+        output.innerHTML = `<p>${message}</p>`;
+    });
+};
+
+
+
+//  PROMISE VERSION
+
+
+const addTaskPromise = (task) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            tasks.push(task);
+            resolve("Task added using Promise");
+        }, 1000);
+    });
+};
+
+const addTaskPromiseVersion = () => {
+    const task = document.getElementById("taskInput").value;
+
+    addTaskPromise(task)
+    .then((message) => {
+        output.innerHTML = `<p>${message}</p>`;
+    });
+};
+
+
+// ASYNC/AWAIT VERSION
+
+
+const addTaskAsyncVersion = async () => {
+
+    const task = document.getElementById("taskInput").value;
+
+    try {
+        const message = await addTaskPromise(task);
+        output.innerHTML = `<p>${message}</p>`;
+    } catch (error) {
+        output.innerHTML = `<p>Error: ${error}</p>`;
+    }
+};
+
+// LIST TASKS (Promise Based)
+
+
+const listTasksPromise = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tasks);
+        }, 1000);
+    });
+};
+
+const listTasks = async () => {
+    const taskList = await listTasksPromise();
+
+    if (taskList.length === 0) {
+        output.innerHTML = "<p>No Tasks Available</p>";
+        return;
+    }
+
+    output.innerHTML = "<h3>Task List</h3>";
+
+    taskList.forEach((task, index) => {
+        output.innerHTML += `<p>${index + 1}. ${task}</p>`;
+    });
+};
+
+
+
+// DELETE TASK (Promise Version)
+
+
+const deleteTaskPromise = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (tasks.length === 0) {
+                reject("No tasks to delete");
+            } else {
+                tasks.pop();
+                resolve("Last task deleted");
+            }
+        }, 1000);
+    });
+};
+
+const deleteLastTask = async () => {
+
+    try {
+        const message = await deleteTaskPromise();
+        output.innerHTML = `<p>${message}</p>`;
+    } catch (error) {
+        output.innerHTML = `<p>Error: ${error}</p>`;
+    }
+};
+
+</script>
+
+</body>
+</html>

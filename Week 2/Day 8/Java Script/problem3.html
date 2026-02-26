@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .todo-container {
+            background: #ffffff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 70%;
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background: #eee;
+            margin-bottom: 10px;
+            padding: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            background: #d4edda;
+        }
+
+        .btn-delete {
+            background: red;
+            color: white;
+            border: none;
+        }
+
+        .btn-complete {
+            background: green;
+            color: white;
+            border: none;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="todo-container">
+    <h2>My To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button id="addBtn">Add</button>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    const taskInput = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const taskList = document.getElementById("taskList");
+
+    // Create Task Element
+    function createTask(taskText) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${taskText}</span>
+            <div>
+                <button class="btn-complete">✔</button>
+                <button class="btn-delete">✖</button>
+            </div>
+        `;
+        return li;
+    }
+
+    // Add Task
+    function addTask() {
+        const text = taskInput.value.trim();
+        if (text === "") return;
+
+        const newTask = createTask(text);
+        taskList.appendChild(newTask);
+        taskInput.value = "";
+    }
+
+    // Event Delegation for Complete & Delete
+    function handleTaskActions(e) {
+        if (e.target.classList.contains("btn-delete")) {
+            e.target.closest("li").remove();
+        }
+
+        if (e.target.classList.contains("btn-complete")) {
+            e.target.closest("li").classList.toggle("completed");
+        }
+    }
+
+    // Event Listeners
+    addBtn.addEventListener("click", addTask);
+    taskList.addEventListener("click", handleTaskActions);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Product Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .search-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .no-results {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Product Search</h2>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products...">
+</div>
+
+<ul id="productList"></ul>
+<p id="noResults" class="no-results"></p>
+
+<script>
+
+    // ---------------- STATE ----------------
+    const products = [
+        "Laptop",
+        "Smartphone",
+        "Headphones",
+        "Smart Watch",
+        "Keyboard",
+        "Mouse",
+        "Tablet",
+        "Camera"
+    ];
+
+    let filteredProducts = [...products];
+
+    const searchInput = document.getElementById("searchInput");
+    const productList = document.getElementById("productList");
+    const noResults = document.getElementById("noResults");
+
+    // ---------------- RENDER FUNCTION ----------------
+    function renderProducts(list) {
+        productList.innerHTML = "";
+
+        if (list.length === 0) {
+            noResults.textContent = "No Results Found";
+            return;
+        }
+
+        noResults.textContent = "";
+
+        list.forEach(product => {
+            const li = document.createElement("li");
+            li.textContent = product;
+            productList.appendChild(li);
+        });
+    }
+
+    // ---------------- FILTER FUNCTION ----------------
+    function filterProducts(keyword) {
+        filteredProducts = products.filter(product =>
+            product.toLowerCase().includes(keyword.toLowerCase())
+        );
+        renderProducts(filteredProducts);
+    }
+
+    // ---------------- EVENT HANDLING ----------------
+
+    // Real-time search
+    searchInput.addEventListener("input", function(e) {
+        filterProducts(e.target.value);
+    });
+
+    // Event Delegation (future feature example)
+    productList.addEventListener("click", function(e) {
+        if (e.target.tagName === "LI") {
+            alert("You clicked: " + e.target.textContent);
+        }
+    });
+
+    // Initial Render
+    renderProducts(products);
+
+</script>
+
+</body>
+</html>

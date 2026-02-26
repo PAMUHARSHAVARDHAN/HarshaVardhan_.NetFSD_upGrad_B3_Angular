@@ -1,0 +1,37 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Feedback</title>
+</head>
+<body>
+    
+    <h1>Interactive Feedback</h1>
+    <Textarea id ="feedback"rows="10" cols="30" placeholder="enter your feedback"></Textarea>
+    <button id="submitfeedback"> Submit Feedback</button>
+    <div id="feedbackdisplay"></div>
+    <script>
+        const button =document.getElementById("submitfeedback");
+        const feedbackinput =document.getElementById("feedback");
+        const messagebox =document.getElementById("feedbackdisplay")
+        button.addEventListener("click", ()=>{
+            const textbox = feedbackinput.value.trim();
+            messagebox.innerHTML=""
+            if (textbox ===""){
+                messagebox.innerHTML ="<p >please enter your feedback</p>"
+                messagebox.style.color="red";
+            }
+            else{
+                messagebox.innerHTML= "<p>Thank you for your feedback!</p>"
+                messagebox.style.color="green";
+                
+            }
+            textbox.value="";
+            });
+    
+       
+    </script>
+
+</body>
+</html> 
