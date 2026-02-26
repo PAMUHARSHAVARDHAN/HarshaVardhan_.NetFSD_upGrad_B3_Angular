@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>vehicle management Systems</h1>
+    <button id="btn">Get Data</button>
+    <script>
+        class Vehicle{
+            constructor(brand,speed){
+                this.brand= brand
+                this.speed = speed
+            }
+            displayInfo() {
+               console.log("brand:", this.brand);
+              console.log("speed:", this.speed + " km/h");
+           }
+        }
+        class Car extends Vehicle{
+            constructor(brand,speed,fueltype){
+                super(brand,speed);
+                this.fueltype= fueltype;
+            }
+            showdeatails(){
+                console.log("fueltype:",this.fueltype)
+            }
+        }
+        function fn_button1Click(){
+            let  car1 = new Car("harrier",250,"diesel")
+            car1.showdeatails();
+            car1.displayInfo();
+        }
+        document.getElementById("btn").addEventListener('click',fn_button1Click)
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Payment system </h1>
+    <input type="button" onclick="fn_1()" value="Get Data"/>
+    <Script>
+class Payment {
+    pay(amount) {
+        console.log("Processing payment of " + amount);
+    }
+}
+class CreditCardPayment extends Payment {
+    pay(amount) {
+        console.log("Paid" + amount + " using Credit Card");
+    }
+}
+class UPIPayment extends Payment {
+    pay(amount) {
+        console.log("Paid" + amount + " using UPI");
+    }
+}
+
+class CashPayment extends Payment {
+    pay(amount) {
+        console.log("Paid" + amount + " using Cash");
+    }
+}
+function fn_1(){
+const payment1 = new CreditCardPayment();
+const payment2 = new UPIPayment();
+const payment3 = new CashPayment();
+payment1.pay(500);
+payment2.pay(500);
+payment3.pay(500);
+}
+    </Script>
+</body>
+</html>

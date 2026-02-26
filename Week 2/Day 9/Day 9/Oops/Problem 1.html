@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> Calss And Object (Encapsulation)</h1>
+   <input type="button" onclick="fn_button1Click()" value="Get Data" />
+    <script>
+
+        class Student{
+            constructor(name, rollnumber, marks){
+            this.name =name;
+            this.rollnumber=rollnumber;
+            this.marks=marks;
+
+
+        }
+        getdeatails(){
+            
+            console.log("Name", this.name);
+             console.log("rollnumber:", this.rollnumber);
+              console.log("marks:", this.marks);
+
+        }
+        getgrade(){
+            if (this.marks>=90){
+                return "A";
+            }
+            else if(this.marks >=75 && this.marks<90){
+                return "B";
+            }
+            else if (this.marks >=50 && this.marks<75){
+                return "c";
+            }
+            else{
+                return "Fail";
+            }
+        }
+    }
+    function fn_button1Click(){
+        
+        const student1 =new Student("Harsha",1234,85);
+        const student2 = new Student("vignesh",1235,50);
+        student1.getdeatails()
+        console.log("grade:",student1.getgrade());
+        student2.getdeatails()
+        console.log("grade:",student2.getgrade());
+        
+
+    }
+
+
+   
+
+    </script>
+</body>
+</html>
