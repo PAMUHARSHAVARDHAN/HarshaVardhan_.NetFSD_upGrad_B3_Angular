@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Analysis Tool</title>
+</head>
+<body>
+
+    <h1>Number Analysis Tool</h1>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="analyzeNumber()">Analyze</button>
+    <p id="result"></p>
+
+    <script>
+        function analyzeNumber() {
+            let number = Number(document.getElementById("numberInput").value);
+
+            let output = "";
+            let sign = (number >= 0) ? "Positive" : "Negative";
+            output += "The number is: " + sign + "<br>";
+            if (number % 2 === 0) {
+                output += "The number is Even<br>";
+            } else {
+                output += "The number is Odd<br>";
+            }
+            output += "Numbers from 1 to " + number + ":<br>";
+
+            for (let i = 1; i <= number; i++) {
+                output += i + " ";
+            }
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>

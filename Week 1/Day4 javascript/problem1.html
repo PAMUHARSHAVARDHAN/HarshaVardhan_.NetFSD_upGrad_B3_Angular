@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+   
+        
+        @media (max-width: 500px) {
+
+            body {
+                background-color: lightcoral;   
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+           
+
+            nav {
+                flex-direction: column;  
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Responsive</h1>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    
+
+</body>
+</html>

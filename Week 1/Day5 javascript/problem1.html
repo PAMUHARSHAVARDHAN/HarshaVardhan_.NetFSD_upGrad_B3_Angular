@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting genrator
+
+    </title>
+</head>
+<body>
+    <header><h1>Greeting Generator</h1></header>
+    
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit" onclick="generateGreeting()">Generate Greeting</button>
+        <p id="greeting"></p>
+
+    <script>
+        function generateGreeting() {
+            var name  = document.getElementById("name").value;
+            var message = 'Hello ' + name + ', welcome to our website!';
+            document.getElementById("greeting").innerText= message; 
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+        nav a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+        .breadcrumb {
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 8px;
+            color: #666;
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses/index.html">Courses</a></li>
+            <li><a href="courses/web-development/index.html">Web Development</a></li>
+            <li><a href="courses/web-development/html/index.html">HTML Course</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>></span>
+        <a href="courses/index.html">Courses</a>
+        <span>></span>
+        <a href="courses/web-development/index.html">Web Development</a>
+        <span>></span>
+        <span>HTML Course</span>
+    </nav>
+
+    <!-- Page Content -->
+    <main>
+        <h1>HTML Course</h1>
+        <p>Welcome to the HTML Course. Learn the fundamentals of web development.</p>
+    </main>
+</body>
+</html>
