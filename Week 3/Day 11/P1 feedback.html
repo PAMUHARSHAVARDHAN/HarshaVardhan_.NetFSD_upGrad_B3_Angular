@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <h2>Student  Feedback Form</h2>
+    <label >Name:</label>
+    <input type="text" id="t1" name="t1" required>
+    <br><br>
+    <label >email:</label>
+    <input type="email" id="t2" name="t2" required>
+    <br><br>
+    <label >Course rating:</label>
+    <select  id="rating">
+        <option value="">select the options</option>
+        <option >good</option>
+        <option value="">excellent</option>
+        <option value="">outstanding</option>
+        <option value="">Poor</option>
+    </select>
+    <br><br>
+    <label for="">Comment Box :</label>
+    <textarea name="comment" id="comment" placeholder="is there any thing"></textarea>
+    <br><br>
+    <button  type="button" id="bt1">submit</button>
+    <div id="message"></div>
+    <script>
+        $(document).ready(function(){
+            $("#bt1").click(function(){
+                $("#message").text("");
+                 let name=$("#t1").val().trim();
+                 let email=$("#t2").val().trim();
+                 if (name==="" || email ===""){
+                    $("#message").text(" Please fill the fields");
+                 }
+                 else{
+                    $("#message").text(" You have succesfully filled the form ");
+                     $("#t1").val("");
+                      $("#t2").val("");
+                         $("#rating").val("");
+                          $("#comment").val("");
+                 }
+                
+            })
+        });
+
+    </script>
+</body>
+</html>

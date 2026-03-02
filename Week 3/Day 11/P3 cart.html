@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Shoppingcart</h2>
+<div class="cart">
+    Cart Items: <span id="cartCount">0</span>
+</div>
+
+<div id="productList">
+
+    <div class="product">
+        <p>Product 1 - Laptop</p>
+        <button class="addBtn">Add to Cart</button>
+        <span class="msg"></span>
+    </div>
+
+    <div class="product">
+        <p>Product 2 - Mobile</p>
+        <button class="addBtn">Add to Cart</button>
+       
+    </div>
+
+    <div class="product">
+        <p>Product 3 - Headphones</p>
+        <button class="addBtn">Add to Cart</button>   
+    </div>
+
+    <div class="product">
+        <p>Product 4 - Smart Watch</p>
+        <button class="addBtn">Add to Cart</button>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function (){
+        let count=0;
+        $("#productList").on("click",".addBtn",function(){
+            count+=1;
+            $("#cartCount").text(count);
+            $(this).prop("disabled",true);
+            $(this).text("added");
+            $(this).attr("data-added",true);
+            $(this).siblings(".msg").text("data is added")        
+        });
+
+
+
+    })
+</script>
+
+
+</body>
+</html>

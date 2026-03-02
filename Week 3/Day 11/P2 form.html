@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .question{
+            font-weight: bold;
+            cursor: pointer;
+            background: #f2f2f2;
+        }
+        .answer{
+            display: none;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>FAQ</h3>
+    <p class="question">1.what is Html</p>
+    <p class="answer">HTML (HyperText Markup Language) is the standard markup language used to create and structure content on the World Wide Web</p>
+    <p class="question">2.what is css</p>
+      <p class="answer">CSS (Cascading Style Sheets): The skin/styling of a website. It dictates colors, fonts, layout, and responsiveness (how it looks).</p>
+    <p class="question">3.what is javascript</p>
+     <p class="answer">JavaScript (JS): The brain/functionality of a website. It makes pages interactive, handling things like dropdown menus, animations, and real-time updates.</p>
+    <p class="question">4.what is jquery</p>
+     <p class="answer">jQuery: A fast, small JavaScript library designed to simplify HTML DOM traversing, event handling, and AJAX interactions. It makes complex JS tasks easier to write.</p>
+    <p class="question">5.what is bootstrap</p>
+     <p class="answer">Bootstrap: A front-end framework (using CSS and JS) that provides pre-styled components (buttons, navbars, grids) for fast, responsive, mobile-first web development</p>
+    <Script>
+     $(document).ready(function(){
+        $(".question").click(function(){
+            $(".answer").hide();
+            $(this).next(".answer").slideToggle();
+            
+        })
+      
+
+     })		
+	</script>
+
+</body>
+</html>
