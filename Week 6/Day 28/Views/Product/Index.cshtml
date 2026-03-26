@@ -1,0 +1,26 @@
+﻿@using WebApplication1.Models
+@model List<Product>
+    <h1> Product List</h1>
+
+    <Table class="table table-bordered">
+        <Thead>
+            <tr>
+                <th>Id </th>
+                <th>Name </th>
+                <th>Category </th>
+                <th>Price </th>
+            </tr>
+        </Thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Name</td>
+                    <td>@p.Category</td>
+                    <td>@p.Price</td>
+                </tr>
+
+            }
+        </tbody>
+    </Table>
