@@ -1,0 +1,48 @@
+﻿@using WebApplication1.Models
+@model List<ContactInfo>
+<h1> contacts Info</h1>
+
+<a class=" btn btn-primary" asp-action="AddContact">ADD
+
+</a>
+<a asp-action="Search">search</a>
+<a href="/Contact/Search?designation=Developer"> 
+    search by designation
+</a>
+<table class=" table table-bordered">
+    <thead>
+        <tr>
+            <td>Id </td>
+            <td>FirstName </td>
+            <td>LastName </td>
+            <td>CompanyName </td>
+            <td>Email </td>
+            <td>MobileNo </td>
+            <td>Designation </td>
+            <td></td>
+
+</tr>
+    </thead>
+    <tbody>
+        @foreach  (ContactInfo  p in Model)
+        {
+            <tr>
+                <td>@p.ContactId</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.CompanyName</td>
+                <td>@p.EmailId</td>
+                <td>@p.MobileNo</td>
+                <td>@p.Designation</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Contact" asp-action="GetContactById" asp-route-id="@p.ContactId">View</a>
+                 <!----  <form asp-controller="Contact" asp-action="GetContactById" asp-route-id="@p.ContactId" method="get"> -->
+                        
+                       <!-- <button type="submit" class="btn btn-primary">viewData</button>--->
+                   <!---- </form> --->
+                   </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

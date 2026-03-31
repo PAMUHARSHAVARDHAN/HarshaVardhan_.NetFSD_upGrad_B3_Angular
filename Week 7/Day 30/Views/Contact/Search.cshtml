@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models
+@model List<ContactInfo>
+<h1>  Search contacts Info</h1>
+
+<table class=" table table-bordered">
+    <thead>
+        <tr>
+            <td>Id </td>
+            <td>FirstName </td>
+            <td>LastName </td>
+            <td>CompanyName </td>
+            <td>Email </td>
+            <td>MobileNo </td>
+            <td>Designation </td>
+            <td></td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ContactInfo p in Model)
+        {
+            <tr>
+                <td>@p.ContactId</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.CompanyName</td>
+                <td>@p.EmailId</td>
+                <td>@p.MobileNo</td>
+                <td>@p.Designation</td>
+             
+            </tr>
+        }
+    </tbody>
+</table>
+
+

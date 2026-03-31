@@ -1,0 +1,15 @@
+﻿@using WebApplication1.Models
+@model ContactInfo
+
+<h2>Contact Details</h2>
+
+<p><b>ID:</b> @Model.ContactId</p>
+<p><b>Name:</b> @Model.FirstName @Model.LastName</p>
+<p><b>Company:</b> @Model.CompanyName</p>
+<p><b>Email:</b> @Model.EmailId</p>
+<p><b>Mobile:</b> @Model.MobileNo</p>
+<p><b>Designation:</b> @Model.Designation</p>
+<form asp-controller="Contact" asp-action="ShowContacts">
+    <button class="btn btn-outline-secondary">Back</button>
+</form>
+
